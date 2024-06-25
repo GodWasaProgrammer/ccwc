@@ -8,7 +8,10 @@ internal class Program
         {
             var lineInput = Console.ReadLine();
 
-            lineInput.ToLower();
+            if (lineInput != null)
+            {
+                var loweredInput = lineInput.ToLower();
+            }
 
             if (lineInput.Contains("ccwc"))
             {
@@ -18,13 +21,16 @@ internal class Program
                 {
                     if (lineInput.Contains("-c"))
                     {
-
                         var fileBytes = fileinfo.Length;
                         Console.WriteLine($"{fileBytes} {extractedfilename}");
                     }
                     if (lineInput.Contains("-l"))
                     {
                         Console.WriteLine(CLIMethods.CountLines(extractedfilename));
+                    }
+                    if (lineInput.Contains("-w"))
+                    {
+                        Console.WriteLine(CLIMethods.CountWords(extractedfilename));
                     }
                 }
                 else
